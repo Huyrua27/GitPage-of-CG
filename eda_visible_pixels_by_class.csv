@@ -1,0 +1,13 @@
+split,class_name,visible_pixels
+test,road,53767277
+test,tree,27269616
+test,building,20247200
+test,truck,6472531
+test,car,2727956
+test,person,1066077
+train,road,326066983
+train,building,264393943
+train,tree,128041585
+train,car,42689469
+train,truck,34803578
+train,person,3311294

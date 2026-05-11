@@ -1,0 +1,10 @@
+task,metric,value
+detection,map50_95_box,0.537149390278481
+detection,map50_box,0.763836400841865
+detection,map75_box,0.6009345007452997
+segmentation,map50_95_box,0.6438783566271844
+segmentation,map50_box,0.8491028183117395
+segmentation,map75_box,0.7443433314900987
+segmentation,map50_95_mask,0.5596464604983615
+segmentation,map50_mask,0.8526874340421983
+segmentation,map75_mask,0.7196437087801524

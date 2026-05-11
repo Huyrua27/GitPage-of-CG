@@ -1,0 +1,444 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BTL2 - Detection and Segmentation Report</title>
+  <meta name="description" content="Static GitHub Pages report for BTL2 artifacts: EDA, detection, segmentation, tables, and plots.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="report_style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-a"></div>
+  <div class="bg-glow bg-glow-b"></div>
+
+  <header class="hero section reveal" id="top">
+    <p class="eyebrow">Deep Learning Course - Major Project 2</p>
+    <h1>BTL2 - Object Detection and Segmentation Report</h1>
+    <p class="hero-lead">
+      This page is a static artifact report for GitHub Pages. It loads result images and CSV tables directly from the repository root,
+      so you can publish without uploading training code.
+    </p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <span>Project</span>
+        <strong>BTL2 - Detection + Segmentation</strong>
+      </div>
+      <div class="meta-card">
+        <span>Author</span>
+        <strong>Update your name here</strong>
+      </div>
+      <div class="meta-card">
+        <span>Repository</span>
+        <strong>Update owner/repo here</strong>
+      </div>
+      <div class="meta-card">
+        <span>Last updated</span>
+        <strong>May 11, 2026</strong>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-outline" href="mini-test.pdf" target="_blank" rel="noopener noreferrer">Mini Test PDF</a>
+      <a class="btn btn-outline" href="#artifacts">Artifact Links</a>
+      <a class="btn btn-primary" href="#tables">Metrics Tables</a>
+    </div>
+
+    <p class="note">Tip: edit the Author and Repository fields before publishing.</p>
+  </header>
+
+  <nav class="toc section reveal">
+    <a href="#overview">Overview</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#eda">EDA</a>
+    <a href="#detection">Detection</a>
+    <a href="#segmentation">Segmentation</a>
+    <a href="#tables">Tables</a>
+    <a href="#artifacts">Artifacts</a>
+  </nav>
+
+  <main class="section-stack">
+    <section class="section card reveal" id="overview">
+      <h2>Overview</h2>
+      <p>
+        The report is generated from files already in this folder, including plots (<code>.png</code>) and metric tables (<code>.csv</code>).
+        No backend and no notebook runtime are required.
+      </p>
+      <ul>
+        <li>EDA charts and distribution analysis</li>
+        <li>Detection and segmentation prediction grids</li>
+        <li>Per-class metrics and summary metrics</li>
+        <li>Direct links to all artifacts used in the report</li>
+      </ul>
+    </section>
+
+    <section class="section card reveal" id="highlights">
+      <h2>Metric Highlights</h2>
+      <p>Top metrics are loaded from <code>final_metrics_summary.csv</code>.</p>
+      <div class="metric-highlight-grid" id="metric-cards"></div>
+      <p class="small-note" id="metric-fallback" hidden>
+        Could not load <code>final_metrics_summary.csv</code>. Make sure the file exists in the same folder as this page.
+      </p>
+    </section>
+
+    <section class="section card reveal" id="eda">
+      <h2>EDA Results</h2>
+      <div class="figure-grid">
+        <figure>
+          <img src="eda_class_distribution.png" alt="Class distribution" loading="lazy">
+          <figcaption>Class distribution over dataset categories.</figcaption>
+        </figure>
+        <figure>
+          <img src="eda_objects_per_image_hist.png" alt="Objects per image histogram" loading="lazy">
+          <figcaption>Histogram of object count per image.</figcaption>
+        </figure>
+        <figure>
+          <img src="eda_visible_pixels_by_class.png" alt="Visible pixels by class" loading="lazy">
+          <figcaption>Visible pixel statistics by class.</figcaption>
+        </figure>
+        <figure>
+          <img src="eda_instance_mask_sample.png" alt="Instance mask samples" loading="lazy">
+          <figcaption>Sample instance masks from dataset.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section card reveal" id="detection">
+      <h2>Detection Results</h2>
+      <div class="figure-grid">
+        <figure>
+          <img src="det_prediction_grid.png" alt="Detection prediction grid" loading="lazy">
+          <figcaption>Detection predictions on representative samples.</figcaption>
+        </figure>
+        <figure>
+          <img src="confusion_matrix.png" alt="Confusion matrix" loading="lazy">
+          <figcaption>Confusion matrix for detection classes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section card reveal" id="segmentation">
+      <h2>Segmentation Results</h2>
+      <div class="figure-grid">
+        <figure>
+          <img src="seg_prediction_grid.png" alt="Segmentation prediction grid" loading="lazy">
+          <figcaption>Segmentation predictions on test samples.</figcaption>
+        </figure>
+        <figure>
+          <img src="seg_rgb_gt_pred_side_by_side.png" alt="RGB GT prediction side by side" loading="lazy">
+          <figcaption>RGB, ground truth, and prediction side-by-side comparison.</figcaption>
+        </figure>
+        <figure>
+          <img src="results.png" alt="Combined results" loading="lazy">
+          <figcaption>Combined visualization of final pipeline outputs.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section card reveal" id="tables">
+      <h2>CSV Tables</h2>
+      <p>Tables below are loaded dynamically from CSV files in this folder.</p>
+
+      <h3>Dataset Integrity and EDA</h3>
+      <div id="dataset-tables" class="table-stack"></div>
+
+      <h3>Detection Metrics</h3>
+      <div id="detection-tables" class="table-stack"></div>
+
+      <h3>Segmentation Metrics</h3>
+      <div id="segmentation-tables" class="table-stack"></div>
+
+      <h3>Final Summary</h3>
+      <div id="summary-tables" class="table-stack"></div>
+    </section>
+
+    <section class="section card reveal" id="artifacts">
+      <h2>Direct Artifact Links</h2>
+      <div class="artifact-grid">
+        <article>
+          <h3>Images</h3>
+          <ul>
+            <li><a href="eda_class_distribution.png" target="_blank" rel="noopener noreferrer">eda_class_distribution.png</a></li>
+            <li><a href="eda_objects_per_image_hist.png" target="_blank" rel="noopener noreferrer">eda_objects_per_image_hist.png</a></li>
+            <li><a href="eda_visible_pixels_by_class.png" target="_blank" rel="noopener noreferrer">eda_visible_pixels_by_class.png</a></li>
+            <li><a href="eda_instance_mask_sample.png" target="_blank" rel="noopener noreferrer">eda_instance_mask_sample.png</a></li>
+            <li><a href="det_prediction_grid.png" target="_blank" rel="noopener noreferrer">det_prediction_grid.png</a></li>
+            <li><a href="seg_prediction_grid.png" target="_blank" rel="noopener noreferrer">seg_prediction_grid.png</a></li>
+            <li><a href="seg_rgb_gt_pred_side_by_side.png" target="_blank" rel="noopener noreferrer">seg_rgb_gt_pred_side_by_side.png</a></li>
+            <li><a href="confusion_matrix.png" target="_blank" rel="noopener noreferrer">confusion_matrix.png</a></li>
+            <li><a href="results.png" target="_blank" rel="noopener noreferrer">results.png</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>CSV Metrics</h3>
+          <ul>
+            <li><a href="integrity_summary.csv" target="_blank" rel="noopener noreferrer">integrity_summary.csv</a></li>
+            <li><a href="eda_basic_summary.csv" target="_blank" rel="noopener noreferrer">eda_basic_summary.csv</a></li>
+            <li><a href="eda_visible_pixels_by_class.csv" target="_blank" rel="noopener noreferrer">eda_visible_pixels_by_class.csv</a></li>
+            <li><a href="det_metrics_summary.csv" target="_blank" rel="noopener noreferrer">det_metrics_summary.csv</a></li>
+            <li><a href="det_per_class_map.csv" target="_blank" rel="noopener noreferrer">det_per_class_map.csv</a></li>
+            <li><a href="seg_metrics_summary.csv" target="_blank" rel="noopener noreferrer">seg_metrics_summary.csv</a></li>
+            <li><a href="seg_per_class_map.csv" target="_blank" rel="noopener noreferrer">seg_per_class_map.csv</a></li>
+            <li><a href="final_metrics_summary.csv" target="_blank" rel="noopener noreferrer">final_metrics_summary.csv</a></li>
+            <li><a href="split_manifest.csv" target="_blank" rel="noopener noreferrer">split_manifest.csv</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section footer reveal">
+    <p>BTL2 Artifact Report Page</p>
+    <p><a href="#top">Back to top</a></p>
+  </footer>
+
+  <script>
+    const csvGroups = {
+      dataset: [
+        { file: "integrity_summary.csv", title: "Integrity Summary" },
+        { file: "eda_basic_summary.csv", title: "EDA Basic Summary" },
+        { file: "eda_visible_pixels_by_class.csv", title: "Visible Pixels by Class" }
+      ],
+      detection: [
+        { file: "det_metrics_summary.csv", title: "Detection Metrics Summary" },
+        { file: "det_per_class_map.csv", title: "Detection Per-Class mAP" }
+      ],
+      segmentation: [
+        { file: "seg_metrics_summary.csv", title: "Segmentation Metrics Summary" },
+        { file: "seg_per_class_map.csv", title: "Segmentation Per-Class mAP" }
+      ],
+      summary: [
+        { file: "final_metrics_summary.csv", title: "Final Metrics Summary" }
+      ]
+    };
+
+    function parseCSV(text) {
+      const lines = text.trim().split(/\r?\n/).filter(Boolean);
+      if (!lines.length) return { headers: [], rows: [] };
+      const headers = lines[0].split(",").map((h) => h.trim());
+      const rows = lines.slice(1).map((line) => {
+        const values = line.split(",");
+        const row = {};
+        headers.forEach((header, index) => {
+          row[header] = (values[index] || "").trim();
+        });
+        return row;
+      });
+      return { headers, rows };
+    }
+
+    function isNumeric(value) {
+      if (value === null || value === undefined || value === "") return false;
+      const n = Number(value);
+      return Number.isFinite(n);
+    }
+
+    function formatValue(key, value) {
+      if (!isNumeric(value)) return value;
+      const numeric = Number(value);
+      const lowered = String(key).toLowerCase();
+
+      if (lowered.includes("map") || lowered.includes("acc") || lowered.includes("precision") || lowered.includes("recall") || lowered.includes("f1")) {
+        return (numeric * 100).toFixed(2) + "%";
+      }
+
+      if (Number.isInteger(numeric)) return numeric.toLocaleString();
+
+      return numeric.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
+    }
+
+    function makeTableTitle(title, fileName) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "table-title-row";
+
+      const label = document.createElement("h4");
+      label.textContent = title;
+
+      const link = document.createElement("a");
+      link.href = fileName;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "open csv";
+
+      wrapper.append(label, link);
+      return wrapper;
+    }
+
+    function renderTable(container, title, fileName, parsed) {
+      const card = document.createElement("article");
+      card.className = "table-card";
+
+      card.appendChild(makeTableTitle(title, fileName));
+
+      if (!parsed.headers.length) {
+        const empty = document.createElement("p");
+        empty.className = "small-note";
+        empty.textContent = "No rows found in this CSV file.";
+        card.appendChild(empty);
+        container.appendChild(card);
+        return;
+      }
+
+      const tableWrap = document.createElement("div");
+      tableWrap.className = "table-wrap";
+
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      const tbody = document.createElement("tbody");
+
+      const headRow = document.createElement("tr");
+      parsed.headers.forEach((header) => {
+        const th = document.createElement("th");
+        th.textContent = header;
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+
+      parsed.rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        parsed.headers.forEach((header) => {
+          const td = document.createElement("td");
+          td.textContent = formatValue(header, row[header]);
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+
+      table.append(thead, tbody);
+      tableWrap.appendChild(table);
+      card.appendChild(tableWrap);
+      container.appendChild(card);
+    }
+
+    function createMetricCard(title, value, detail, emphasize = false) {
+      const card = document.createElement("article");
+      card.className = emphasize ? "metric-card best" : "metric-card";
+
+      const span = document.createElement("span");
+      span.textContent = title;
+      const strong = document.createElement("strong");
+      strong.textContent = value;
+      const small = document.createElement("small");
+      small.textContent = detail;
+
+      card.append(span, strong, small);
+      return card;
+    }
+
+    function buildHighlights(rows) {
+      const metricCards = document.getElementById("metric-cards");
+      const fallback = document.getElementById("metric-fallback");
+
+      if (!rows.length) {
+        fallback.hidden = false;
+        return;
+      }
+
+      const lookup = (task, metric) => rows.find((r) => r.task === task && r.metric === metric);
+      const candidates = [
+        {
+          title: "Detection mAP50-95 (Box)",
+          row: lookup("detection", "map50_95_box"),
+          detail: "From final_metrics_summary.csv",
+          emphasize: true
+        },
+        {
+          title: "Segmentation mAP50-95 (Box)",
+          row: lookup("segmentation", "map50_95_box"),
+          detail: "From final_metrics_summary.csv",
+          emphasize: true
+        },
+        {
+          title: "Segmentation mAP50-95 (Mask)",
+          row: lookup("segmentation", "map50_95_mask"),
+          detail: "From final_metrics_summary.csv",
+          emphasize: false
+        }
+      ];
+
+      let rendered = 0;
+      candidates.forEach((item) => {
+        if (!item.row) return;
+        const display = formatValue(item.row.metric, item.row.value);
+        metricCards.appendChild(createMetricCard(item.title, display, item.detail, item.emphasize));
+        rendered += 1;
+      });
+
+      if (rendered === 0) {
+        const topRows = [...rows]
+          .filter((r) => isNumeric(r.value))
+          .sort((a, b) => Number(b.value) - Number(a.value))
+          .slice(0, 3);
+
+        topRows.forEach((row, index) => {
+          const title = `${row.task} - ${row.metric}`;
+          const display = formatValue(row.metric, row.value);
+          metricCards.appendChild(createMetricCard(title, display, "Top metric by value", index === 0));
+        });
+      }
+    }
+
+    async function loadCsv(fileName) {
+      const response = await fetch(fileName, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`Cannot load ${fileName}: ${response.status}`);
+      }
+      return response.text();
+    }
+
+    async function loadTableGroup(groupName, targetId) {
+      const container = document.getElementById(targetId);
+      const files = csvGroups[groupName];
+
+      for (const entry of files) {
+        try {
+          const raw = await loadCsv(entry.file);
+          const parsed = parseCSV(raw);
+          renderTable(container, entry.title, entry.file, parsed);
+
+          if (entry.file === "final_metrics_summary.csv") {
+            buildHighlights(parsed.rows);
+          }
+        } catch (error) {
+          const card = document.createElement("article");
+          card.className = "table-card";
+          card.appendChild(makeTableTitle(entry.title, entry.file));
+          const note = document.createElement("p");
+          note.className = "small-note";
+          note.textContent = `Missing or unreadable file: ${entry.file}`;
+          card.appendChild(note);
+          container.appendChild(card);
+          if (entry.file === "final_metrics_summary.csv") {
+            const fallback = document.getElementById("metric-fallback");
+            fallback.hidden = false;
+          }
+        }
+      }
+    }
+
+    async function init() {
+      await loadTableGroup("dataset", "dataset-tables");
+      await loadTableGroup("detection", "detection-tables");
+      await loadTableGroup("segmentation", "segmentation-tables");
+      await loadTableGroup("summary", "summary-tables");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    }
+
+    init();
+  </script>
+</body>
+</html>
